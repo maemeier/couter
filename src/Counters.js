@@ -16,10 +16,20 @@ class Counters extends React.Component {
     const counters = this.state.counters.filter(c => c.id !== counterId);
     this.setState({ counters });
   };
+  // handleReset
+
+  handleReset = () => {
+    const counters = this.state.counters.map(counter => {
+      counter.value = 0;
+      return counter;
+    });
+    this.setState({ counters });
+  };
   render() {
     return (
       <div>
         Counters Componet
+        <button onClick={this.handleReset}>Reset</button>
         {this.state.counters.map(counter => (
           <Counter
             key={counter.id}
