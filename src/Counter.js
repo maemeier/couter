@@ -6,8 +6,10 @@ class Counter extends React.Component {
     return (
       <div>
         {this.props.children}
-        <p>{this.state.value}</p>
-        <button onClick={this.handleIncrement}>Increment</button>
+        <p>{this.props.counter.value}</p>
+        <button onClick={() => this.props.onIncrement(this.props.counter)}>
+          Increment
+        </button>
         <button onClick={() => this.props.onDelete(this.props.counter.id)}>
           Delete
         </button>
